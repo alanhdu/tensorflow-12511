@@ -1,8 +1,6 @@
 import numpy as np
 import tensorflow as tf
 
-from tensorflow.python import debug as tf_debug
-
 SIZE = 96
 
 data = np.load("final.npz")
@@ -36,7 +34,7 @@ feed_dict = {
     inputs: X_train,
     truth: y_train,
 }
-#sess = tf_debug.LocalCLIDebugWrapperSession(sess)
-#sess.add_tensor_filter("has_inf_or_nan", tf_debug.has_inf_or_nan)
+
+print([np.isfinite(v).all() for v in sess.run(tf.trainable_variables())])
 sess.run(train_step, feed_dict)
 print([np.isfinite(v).all() for v in sess.run(tf.trainable_variables())])
