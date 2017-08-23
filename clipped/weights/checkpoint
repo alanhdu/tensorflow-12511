@@ -1,0 +1,2 @@
+model_checkpoint_path: "/tmp/test-1/model-0"
+all_model_checkpoint_paths: "/tmp/test-1/model-0"
